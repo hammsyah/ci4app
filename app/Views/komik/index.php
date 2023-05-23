@@ -4,8 +4,13 @@
 <div class="container">
     <div class="row">
         <div class="col">
+            <a href="/komik/create" class="btn btn-primary mt-3">TAMBAH DATA KOMIK</a>
             <h1 class="mt-2">Daftar komik</h1>
-
+            <?php if (session('sukses')) : ?>
+                <div class="alert alert-success" role="alert">
+                    <?= session()->getFlashdata('sukses') ?>
+                </div>
+            <?php endif; ?>
             <table class="table">
                 <thead>
                     <tr>

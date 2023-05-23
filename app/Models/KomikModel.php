@@ -7,8 +7,8 @@ use CodeIgniter\Model;
 class KomikModel extends Model
 {
     protected $table = 'komik';
-    //protected $allowedField = ;
     protected $useTimestamps = true;
+    protected $allowedFields = ['judul', 'slug', 'penulis', 'penerbit', 'sampul'];
 
     public function getKomik($slug = false) //metod buatan kita sendiri, bisa pakai paramter atau tidak
     {
