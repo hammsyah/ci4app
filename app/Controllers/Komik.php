@@ -53,6 +53,15 @@ class Komik extends BaseController
 
     public function save()
     {
+        // validasi
+        if(!$this->validate([
+            'judul' => 'required|is_unique[komik.judul]'
+        ])){
+            $validation = \config\Services::validation();
+            return redirect()->to('komik/create')->with('danger', $validation);
+            }
+        }
+
         $slug = url_title($this->request->getVar('judul'), '-', true); //ambil judul dan proses jadi slug
         $this->komikModel->save([
             'judul' => $this->request->getVar('judul'),
