@@ -80,4 +80,57 @@ class Komik extends BaseController
         ]);
         return redirect()->to('/komik')->with('sukses', 'Data Komik Berhasil ditambah');
     }
+
+    public function delete($id)
+    {
+        $this->komikModel->delete($id);
+        return redirect()->to('/komik')->with('sukses', 'Data Komik Berhasil dihapus');
+    }
+
+    public function edit($slug)
+    {
+        $data  = [
+            'title' => 'Form ubah Data Komik',
+            'validation' => \Config\Services::validation(),
+            'komik' => $this->komikModel->getKomik($slug)
+        ];
+
+        return view('komik/edit', $data);
+    }
+
+    public function update($id)
+    {
+        //cek judul
+        $komikLama = $this->komikModel->getKomik($this->request->getVar('slug'));
+        if ($komikLama['judul'] == $this->request->getVar('judul')) {
+            $rule_judul = 'required';
+        } else {
+            $rule_judul = 'required|is_unique[komik.judul]';
+        }
+
+        // validasi
+        if (!$this->validate([
+            'judul' => [
+                'rules' => $rule_judul,
+                'errors' => [
+                    'required' => '{field} komik harus diisi!',
+                    'is_unique' => '{field} komik sudah terdaftar'
+                ]
+            ]
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('komik/edit')->withInput()->with('validation', $validation);
+        }
+
+        $slug = url_title($this->request->getVar('judul'), '-', true); //ambil judul dan proses jadi slug
+        $this->komikModel->save([
+            'id' => $id,
+            'judul' => $this->request->getVar('judul'),
+            'slug' => $slug,
+            'penulis' => $this->request->getVar('penulis'),
+            'penerbit' => $this->request->getVar('penerbit'),
+            'sampul' => $this->request->getVar('sampul')
+        ]);
+        return redirect()->to('/komik')->with('sukses', 'Data Komik Berhasil diubah');
+    }
 }
