@@ -64,10 +64,12 @@ class Komik extends BaseController
                     'required' => '{field} komik harus diisi!',
                     'is_unique' => '{field} komik sudah terdaftar'
                 ]
-            ]
+            ],
+            'sampul' => 'uploaded[sampul]'
         ])) {
-            $validation = \Config\Services::validation();
-            return redirect()->to('komik/create')->withInput()->with('validation', $validation);
+            // $validation = \Config\Services::validation();
+            // return redirect()->to('komik/create')->withInput()->with('validation', $validation);
+            return redirect()->to('komik/create')->withInput();
         }
 
         $slug = url_title($this->request->getVar('judul'), '-', true); //ambil judul dan proses jadi slug
