@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 23, 2023 at 06:09 AM
+-- Generation Time: May 31, 2023 at 01:18 AM
 -- Server version: 8.0.31
 -- PHP Version: 7.4.33
 
@@ -44,8 +44,10 @@ CREATE TABLE `komik` (
 --
 
 INSERT INTO `komik` (`id`, `judul`, `slug`, `penulis`, `penerbit`, `sampul`, `created_at`, `updated_at`) VALUES
-(1, 'Naruto', 'naruto', 'Masashi Kishimoto', 'Shoman Jump', 'naruto.jpg', NULL, NULL),
-(2, 'One Piece', 'one-piece', 'Eichiro Oda', 'Gramedia', 'onepice.jpg', NULL, NULL);
+(2, 'One Piece', 'one-piece', 'Eichiro Oda', 'Gramedia', 'onepice.jpg', NULL, NULL),
+(5, 'Detektif Conan', 'detektif-conan', 'Adi Hamsyah', 'Stikes Rajekwesi', '1685417080_b233912644339f0fa2e1.jpg', '2023-05-23 22:52:01', '2023-05-29 22:24:40'),
+(12, 'Naruto', 'naruto', 'aaaaa', 'gramedia', 'naruto.jpg', '2023-05-23 23:44:17', '2023-05-24 00:00:15'),
+(13, 'coba 1', 'coba-1', 'llll', 'lljkjlkj', 'default.png', '2023-05-29 21:24:00', '2023-05-29 21:24:00');
 
 --
 -- Indexes for dumped tables
@@ -65,7 +67,7 @@ ALTER TABLE `komik`
 -- AUTO_INCREMENT for table `komik`
 --
 ALTER TABLE `komik`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
