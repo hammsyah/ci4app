@@ -10,6 +10,7 @@
                 <a class="nav-link" href=<?= base_url("pages/about"); ?>>About</a>
                 <a class="nav-link" href=<?= base_url("pages/contact"); ?>>Contack</a>
                 <a class="nav-link" href=<?= base_url("komik"); ?>>Komik</a>
+                <a class="nav-link" href=<?= base_url("wa"); ?>>WA</a>
 
             </div>
         </div>
