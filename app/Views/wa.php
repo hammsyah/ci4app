@@ -2,7 +2,7 @@
 
 <?= $this->section('content'); ?>
 
-<?php if ($ulang == 1) { ?>
+<!-- <?php if ($ulang == 1) { ?>
 
     <script>
         var xhttp = new XMLHttpRequest();
@@ -14,7 +14,7 @@
         }, 2000);
     </script>
 
-<?php } ?>
+<?php } ?> -->
 
 <div class="container">
     <div class="row">
@@ -36,9 +36,13 @@
                 <td class="col-lg-7 col-xs-7">
                     <textarea name="pesan" id="" cols="50" rows="3"> <?= $pesan['pesan']; ?> </textarea>
                 </td>
+                <td>
+                    <span id="laporan"></span>
+                </td>
             </form>
 
-            <a href="<?= base_url('wa/blast'); ?>" class="btn btn-danger"> KIRIM BLAST </a>
+            <!-- <a href="<?= base_url('wa/blast'); ?>" class="btn btn-danger"> KIRIM BLAST </a> -->
+            <button class="btn btn-danger" id="kirim" onclick="kirimblast()"> KIRIM BLAST </button>
             <a href="<?= base_url('wa/nolkan'); ?>" class="btn btn-warning"> NOLKAN </a>
             <a href="<?= base_url('wa/hapusall'); ?>" class="btn btn-danger"> HAPUS SEMUA DATA </a>
 

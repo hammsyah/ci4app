@@ -105,7 +105,7 @@ class wa extends BaseController
                 //dd($kirim);
                 $this->waModel->kirimpesan($nomorhp, $kirim);
                 $this->waModel->update($id, $ganti);
-                //  sleep(1);
+                sleep(2);
             }
         }
 

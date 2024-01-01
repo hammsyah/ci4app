@@ -48,6 +48,19 @@
                 imgPreview.src = e.target.result;
             }
         }
+
+
+        function kirimblast() {
+            var xhr = new XMLHttpRequest();
+            var url = "http://localhost:8080/wa/blast";
+            xhr.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("laporan").innerHTML = this.responseText;
+                }
+            };
+            xhr.open("GET", url, true);
+            xhr.send();
+        }
     </script>
 </body>
 
